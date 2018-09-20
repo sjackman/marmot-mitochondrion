@@ -1,0 +1,10 @@
+*.ema-fcnt
+*.ema-ncnt
+*.fa
+*.fq.gz
+*.hist
+*.histo
+*.log
+*.unicycler
+4M-with-alts-february-2016.txt
+data
