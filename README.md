@@ -27,3 +27,7 @@ Genome Repeat Length        | 10,876 bp       | 11,725 bp
 Genome Unique Length        | 13,318 bp       | 14,357 bp         
 Model Fit                   | 59.0981%        | 61.4097%          
 Read Error Rate             | 3.96712%        | 3.96712% 
+
+# MITOS Annotation
+
+[MITOS report](http://mitos2.bioinf.uni-leipzig.de/overview.py?hash=eyicFyHD)
