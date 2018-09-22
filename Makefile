@@ -1,5 +1,8 @@
 # Yellow-bellied marmot (*Marmota flaviventris*)
 
+# Draft genome assembly
+draft=marmot-mt
+
 # Number of threads
 t=16
 
@@ -19,9 +22,20 @@ time=command time -v -o $@.time
 .DELETE_ON_ERROR:
 .SECONDARY:
 
-all:
+all: \
+	marmot1-20M.bx.unicycler.fa \
+	marmot-mt.mitos.fix.gbf.pdf \
+	marmot-mt.bwa.NC_018367.1.cds.sort.bam.bai
 
 # NCBI
+
+# Download CDS amino acid sequence from NCBI using Entrez Direct.
+NC_%.cds.faa:
+	efetch -db nuccore -id NC_$* -format fasta_cds_aa | seqtk seq >$@
+
+# Download CDS DNA sequence from NCBI using Entrez Direct.
+NC_%.cds.fa:
+	efetch -db nuccore -id NC_$* -format fasta_cds_na | seqtk seq >$@
 
 # Download a nucleotide sequence from NCBI using Entrez Direct.
 NC_%.fa:
@@ -52,6 +66,20 @@ marmot1-20M.fq.gz: \
 # Index a BAM file.
 %.bam.bai: %.bam
 	samtools index -@$t $<
+
+# BWA
+
+# Index the target genome.
+%.fa.bwt: %.fa
+	bwa index $<
+
+# Align a FASTA file to the draft assembly and sort by position.
+$(draft).bwa.%.sort.bam: %.fa $(draft).fa.bwt
+	bwa mem $(draft).fa $< | samtools sort -@$t -T$$(mktemp -u -t $@.XXXXXX) -o $@
+
+# Align linked reads to the draft genome and sort by position.
+%.$(lr).bx.sort.bam: %.fa.bwt $(lr).bx.fq.gz
+	bwa mem -t$t -pC $*.fa $(lr).bx.fq.gz | samtools sort -@$t -T$$(mktemp -u -t $@.XXXXXX) -o $@
 
 # EMA
 
