@@ -180,3 +180,30 @@ k=128
 	mv $*.iqtree.treefile $*.iqtree.tree
 	mv $*.iqtree.contree $*.iqtree.con.tree
 	rm $*.iqtree.fa
+
+# tbl2asn
+
+# Add structured comments to the FASTA file.
+%.fsa: %.fa
+	sed '/^>/s/ .*/ [organism=Marmota flaviventris] [location=mitochondrion] [completeness=complete] [topology=circular] [mgcode=2]/' $< >$@
+
+# Convert annotations from Genbank TBL to GBF.
+%.gbf: %.tbl marmot-mt.fsa marmot-mt.cmt marmot-mt.sbt
+	ln -sf marmot-mt.fsa $*.fsa
+	tbl2asn -a s -i $*.fsa -w marmot-mt.cmt -t marmot-mt.sbt -Z $*.discrep -Vbv
+	mv errorsummary.val $*.errorsummary.val
+
+# OrganellarGenomeDRAW
+
+# Render the genome annotation to PNG.
+%.gbf.png: %.gbf
+	drawgenemap --format png --infile $< --outfile $< --gc --density 126
+	mogrify -units PixelsPerInch -density 300 $@
+
+# Render the genome annotation to Postscript.
+%.gbf.ps: %.gbf
+	drawgenemap --format ps --infile $< --outfile $< --gc --density 126
+
+# Convert Postscript to PDF.
+%.pdf: %.ps
+	ps2pdf $< $@
