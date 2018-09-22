@@ -4,6 +4,7 @@
 1	70	tRNA
 			product	tRNA-PHE
 71	1041	gene
+			gene	rrnS
 71	1041	rRNA
 			product	s-rRNA
 1042	1110	gene
@@ -11,6 +12,7 @@
 1042	1110	tRNA
 			product	tRNA-VAL
 1111	2672	gene
+			gene	rrnL
 1111	2672	rRNA
 			product	l-rRNA
 2673	2746	gene
@@ -33,14 +35,10 @@
 			gene	trnM(cat)
 3847	3915	tRNA
 			product	tRNA-MET
-3889	4930	gene
+3916	4959	gene
 			gene	nad2
-3889	4930	CDS
+3916	4959	CDS
 			product	NADH dehydrogenase subunit 2
-4920	4949	gene
-			gene	nad5_1
-4920	4949	CDS
-			product	NADH dehydrogenase subunit 5
 4958	5025	gene
 			gene	trnW(tca)
 4958	5025	tRNA
@@ -63,9 +61,9 @@
 			gene	trnY(gta)
 5338	5273	tRNA
 			product	tRNA-TYR
-5317	6888	gene
+5347	6888	gene
 			gene	cox1
-5317	6888	CDS
+5347	6888	CDS
 			product	cytochrome c oxidase subunit 1
 6959	6891	gene
 			gene	trnS2(tga)
@@ -95,14 +93,18 @@
 			gene	cox3
 8628	9412	CDS
 			product	cytochrome c oxidase subunit 3
+			note	TAA stop codon is completed by the addition of 3' A residues to the mRNA
+			transl_except	(pos:9411..9412,aa:TERM)
 9412	9481	gene
 			gene	trnG(tcc)
 9412	9481	tRNA
 			product	tRNA-GLY
-9479	9828	gene
+9482	9828	gene
 			gene	nad3
-9479	9828	CDS
+9482	9828	CDS
 			product	NADH dehydrogenase subunit 3
+			note	TAA stop codon is completed by the addition of 3' A residues to the mRNA
+			transl_except	(pos:9827..9828,aa:TERM)
 9829	9895	gene
 			gene	trnR(tcg)
 9829	9895	tRNA
@@ -115,6 +117,8 @@
 			gene	nad4
 10187	11564	CDS
 			product	NADH dehydrogenase subunit 4
+			note	TAA stop codon is completed by the addition of 3' A residues to the mRNA
+			transl_except	(pos:11564,aa:TERM)
 11565	11633	gene
 			gene	trnH(gtg)
 11565	11633	tRNA
@@ -127,9 +131,9 @@
 			gene	trnL1(tag)
 11693	11762	tRNA
 			product	tRNA-LEU1
-11754	13580	gene
-			gene	nad5_0
-11754	13580	CDS
+11763	13580	gene
+			gene	nad5
+11763	13580	CDS
 			product	NADH dehydrogenase subunit 5
 14088	13564	gene
 			gene	nad6
@@ -139,9 +143,9 @@
 			gene	trnE(ttc)
 14157	14089	tRNA
 			product	tRNA-GLU
-14111	15251	gene
+14162	15301	gene
 			gene	cob
-14111	15251	CDS
+14162	15301	CDS
 			product	cytochrome b
 15302	15368	gene
 			gene	trnT(tgt)
