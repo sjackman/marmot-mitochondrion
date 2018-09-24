@@ -3,6 +3,9 @@
 # Draft genome assembly
 draft=marmot-mt
 
+# Linked reads
+lr=marmot1-20M
+
 # Number of threads
 t=16
 
@@ -66,6 +69,10 @@ marmot1-20M.fq.gz: \
 # Index a BAM file.
 %.bam.bai: %.bam
 	samtools index -@$t $<
+
+# Compute depth of coverage.
+%.bam.depth: %.bam
+	samtools depth -a $< >$@
 
 # BWA
 
