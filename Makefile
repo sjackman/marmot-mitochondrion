@@ -188,6 +188,29 @@ k=128
 	mv $*.iqtree.contree $*.iqtree.con.tree
 	rm $*.iqtree.fa
 
+# Prokka
+
+# Convert the FASTA file to the Prokka FASTA format
+%.cds.prokka.faa: %.cds.faa
+	gsed -E \
+		-e 's/^>([^ ]*) .*gene=([^]]*).*protein=([^]]*).*$$/>\1 ~~~\2~~~\3/' \
+		-e 's/^-//' \
+		-e 's/ATP/atp/' -e 's/COX/cox/' -e 's/CYTB/cob/' -e 's/ND/nad/' \
+		$< >$@
+
+# Annotate genes using Prokka.
+prokka/%.gff: %.fa NC_018367.1.cds.prokka.faa
+	prokka --cpus $t --kingdom Mitochondria --gcode 2 --addgenes \
+		--genus Marmota --species 'flaviventris mitochondrion' \
+		--centre BCGSC \
+		--rfam --proteins NC_018367.1.cds.prokka.faa \
+		--force --outdir prokka --prefix $* \
+		$<
+
+# Fix up the Prokka GFF file.
+%.prokka.gff: prokka/%.gff
+	gsed -e '/^##FASTA/,$$d' -e 's/gnl[^\t]*_1/marmot-mt/' $< >$@
+
 # tbl2asn
 
 # Add structured comments to the FASTA file.
