@@ -19,10 +19,12 @@
 			gene	trnL2(taa)
 2673	2746	tRNA
 			product	tRNA-LEU2
-2750	3706	gene
+2750	3705	gene
 			gene	nad1
-2750	3706	CDS
+2750	3705	CDS
 			product	NADH dehydrogenase subunit 1
+			note	TAA stop codon is completed by the addition of 3' A residues to the mRNA
+			transl_except	(pos:3704..3705,aa:TERM)
 3706	3774	gene
 			gene	trnI(gat)
 3706	3774	tRNA
@@ -35,10 +37,12 @@
 			gene	trnM(cat)
 3847	3915	tRNA
 			product	tRNA-MET
-3916	4959	gene
+3916	4957	gene
 			gene	nad2
-3916	4959	CDS
+3916	4957	CDS
 			product	NADH dehydrogenase subunit 2
+			note	TAA stop codon is completed by the addition of 3' A residues to the mRNA
+			transl_except	(pos:4957,aa:TERM)
 4958	5025	gene
 			gene	trnW(tca)
 4958	5025	tRNA
