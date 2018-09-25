@@ -32,21 +32,29 @@ all: \
 
 # NCBI
 
-# Download CDS amino acid sequence from NCBI using Entrez Direct.
-NC_%.cds.faa:
-	efetch -db nuccore -id NC_$* -format fasta_cds_aa | seqtk seq >$@
-
-# Download CDS DNA sequence from NCBI using Entrez Direct.
-NC_%.cds.fa:
-	efetch -db nuccore -id NC_$* -format fasta_cds_na | seqtk seq >$@
-
-# Download a nucleotide sequence from NCBI using Entrez Direct.
+# Download a nucleotide sequence from NCBI.
 NC_%.fa:
-	efetch -db nuccore -id NC_$* -format fasta | seqtk seq >$@
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_$*&db=nucleotide&rettype=fasta' | seqtk seq >$@
 
-# Download a nucleotide sequence from NCBI using ncbi-acc-download.
-NC_%_0.fa:
-	ncbi-acc-download -Ffasta -o NC_$* NC_$*
+# Download CDS amino acid sequence from NCBI.
+NC_%.cds.faa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_$*&db=nucleotide&rettype=fasta_cds_aa' | seqtk seq >$@
+
+# Download CDS DNA sequence from NCBI.
+NC_%.cds.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_$*&db=nucleotide&rettype=fasta_cds_na' | seqtk seq >$@
+
+# Download a GBF (GenBank flat file) from NCBI.
+NC_%.gbf:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_$*&db=nucleotide&rettype=gb' >$@
+
+# Download a TBL (feature table) from NCBI.
+NC_%.tbl:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_$*&db=nucleotide&rettype=ft' >$@
+
+# Download a GFF file from NCBI.
+NC_%.gff:
+	curl 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_$*' >$@
 
 # Data
 
