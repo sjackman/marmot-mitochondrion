@@ -7,7 +7,7 @@ Submit-block ::= {
         initials "S.D.",
       },
       affil std {
-        affil "BC Cancer Agency Genome Sciences Centre",
+        affil "BC Cancer Genome Sciences Centre",
         div "Bioinformatics",
         city "Vancouver",
         sub "BC",
@@ -32,9 +32,100 @@ Submit-block ::= {
         },
         {
           name name {
-            last "Birol",
-            first "Inanc",
-            initials "I.",
+            last "Culibrk",
+            first "Luka",
+            initials "L.",
+          }
+        },
+        {
+          name name {
+            last "Leelakumari",
+            first "Sreeja",
+            initials "S.",
+          }
+        },
+        {
+          name name {
+            last "Taylor",
+            first "Gregory",
+            initials "G.A.",
+          }
+        },
+        {
+          name name {
+            last "Tse",
+            first "Kane",
+            initials "K.",
+          }
+        },
+        {
+          name name {
+            last "Cheung",
+            first "Dean",
+            initials "D.",
+          }
+        },
+        {
+          name name {
+            last "Chuah",
+            first "Eric",
+            initials "E.",
+          }
+        },
+        {
+          name name {
+            last "Kirk",
+            first "Heather",
+            initials "H.",
+          }
+        },
+        {
+          name name {
+            last "Pandoh",
+            first "Pawan",
+            initials "P.",
+          }
+        },
+        {
+          name name {
+            last "Troussard",
+            first "Armelle",
+            initials "A.",
+          }
+        },
+        {
+          name name {
+            last "Zhao",
+            first "Yongjun",
+            initials "Y.",
+          }
+        },
+        {
+          name name {
+            last "Mungall",
+            first "Andy",
+            initials "A.J.",
+          }
+        },
+        {
+          name name {
+            last "Moore",
+            first "Richard",
+            initials "R.",
+          }
+        },
+        {
+          name name {
+            last "Marra",
+            first "Marco",
+            initials "M.",
+          }
+        },
+        {
+          name name {
+            last "McAdie",
+            first "Malcolm",
+            initials "M.",
           }
         },
         {
@@ -43,10 +134,13 @@ Submit-block ::= {
             first "Steven",
             initials "S.J.M.",
           }
+        },
+        {
+          name consortium "CanSeq150"
         }
       },
       affil std {
-        affil "BC Cancer Agency Genome Sciences Centre",
+        affil "BC Cancer Genome Sciences Centre",
         div "Bioinformatics",
         city "Vancouver",
         sub "BC",
@@ -74,9 +168,100 @@ Seqdesc ::= pub {
           },
           {
             name name {
-              last "Birol",
-              first "Inanc",
-              initials "I.",
+              last "Culibrk",
+              first "Luka",
+              initials "L.",
+            }
+          },
+          {
+            name name {
+              last "Leelakumari",
+              first "Sreeja",
+              initials "S.",
+            }
+          },
+          {
+            name name {
+              last "Taylor",
+              first "Gregory",
+              initials "G.A.",
+            }
+          },
+          {
+            name name {
+              last "Tse",
+              first "Kane",
+              initials "K.",
+            }
+          },
+          {
+            name name {
+              last "Cheung",
+              first "Dean",
+              initials "D.",
+            }
+          },
+          {
+            name name {
+              last "Chuah",
+              first "Eric",
+              initials "E.",
+            }
+          },
+          {
+            name name {
+              last "Kirk",
+              first "Heather",
+              initials "H.",
+            }
+          },
+          {
+            name name {
+              last "Pandoh",
+              first "Pawan",
+              initials "P.",
+            }
+          },
+          {
+            name name {
+              last "Troussard",
+              first "Armelle",
+              initials "A.",
+            }
+          },
+          {
+            name name {
+              last "Zhao",
+              first "Yongjun",
+              initials "Y.",
+            }
+          },
+          {
+            name name {
+              last "Mungall",
+              first "Andy",
+              initials "A.J.",
+            }
+          },
+          {
+            name name {
+              last "Moore",
+              first "Richard",
+              initials "R.",
+            }
+          },
+          {
+            name name {
+              last "Marra",
+              first "Marco",
+              initials "M.",
+            }
+          },
+          {
+            name name {
+              last "McAdie",
+              first "Malcolm",
+              initials "M.",
             }
           },
           {
@@ -85,10 +270,13 @@ Seqdesc ::= pub {
               first "Steven",
               initials "S.J.M.",
             }
+          },
+          {
+            name consortium "CanSeq150"
           }
         },
         affil std {
-          affil "BC Cancer Agency Genome Sciences Centre",
+          affil "BC Cancer Genome Sciences Centre",
           div "Bioinformatics",
           city "Vancouver",
           sub "BC",
@@ -97,7 +285,7 @@ Seqdesc ::= pub {
           postal-code "V5Z 4S6"
         }
       },
-      title "Sequencing and assembly of yellow-bellied marmot (Marmota flaviventris)"
+      title "Yellow bellied marmot (Marmota flaviventris) genome sequencing and assembly"
     }
   }
 }
