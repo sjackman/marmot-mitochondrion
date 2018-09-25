@@ -89,10 +89,12 @@
 			gene	atp8
 7787	7990	CDS
 			product	ATP synthase F0 subunit 8
-7948	8628	gene
+7948	8627	gene
 			gene	atp6
-7948	8628	CDS
+7948	8627	CDS
 			product	ATP synthase F0 subunit 6
+			note	TAA stop codon is completed by the addition of 3' A residues to the mRNA
+			transl_except	(pos:8626..8627,aa:TERM)
 8628	9412	gene
 			gene	cox3
 8628	9412	CDS
