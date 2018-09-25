@@ -4,8 +4,12 @@ https://en.wikipedia.org/wiki/Yellow-bellied_marmot
 
 # Sequencing data
 
-Biosample `SAMN10078668`
-Bioproject `PRJNA491472`
+- `PRJNA491472`
+- `SAMN10078668`
+- `SRP161939`
+- `SRS3791272`
+- `SRX4705503`
+- `SRR7878800`
 
 `/projects/sjones_prj/CGEN150/Yellow_Bellied_Marmot/fastqs/`
 
