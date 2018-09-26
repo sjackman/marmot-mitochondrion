@@ -231,6 +231,14 @@ prokka/%.gff: %.fa NC_018367.1.cds.prokka.faa
 		--force --outdir prokka --prefix $* \
 		$<
 
+# Annotate bacterial genes using Prokka with genetic code 4.
+%.gcode4.prokka/marmot.gff: %.fa
+	prokka --cpus $t --kingdom Bacteria --gcode 4 --addgenes \
+		--genus Marmota --species 'flaviventris' \
+		--centre BCGSC \
+		--force --outdir $*.gcode4.prokka --prefix marmot \
+		$<
+
 # Fix up the Prokka GFF file.
 %.prokka.gff: prokka/%.gff
 	gsed -e '/^##FASTA/,$$d' -e 's/gnl[^\t]*_1/marmot-mt/' $< >$@
