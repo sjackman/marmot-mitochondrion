@@ -49,5 +49,8 @@ prokka
 *.splits.nex
 
 !marmot-mt.fa
+!marmot-mt.mitos.fix.tbl
+!marmot-mt.mitos.tbl
 !marmot1-20M.bx.unicycler.mt.rot.fa
 !marmot1-20M.bx.unicycler.xx.fa
+!marmot1-20M.bx.unicycler.xx.gcode4.prokka/marmot.tbl
