@@ -56,6 +56,16 @@ NC_%.tbl:
 NC_%.gff:
 	curl 'https://www.ncbi.nlm.nih.gov/sviewer/viewer.cgi?db=nuccore&report=gff3&id=NC_$*' >$@
 
+# sratoolkit
+
+# Download the first ten million read pairs of the 10x Chromium sequencing data from NCBI SRA.
+SRR7878800-20M.fq.gz:
+	fastq-dump -Z --split-spot SRR7878800 | sed 's/ .*//;s/^+.*/+/' | head -n 80000000 | $(gzip) >$@
+
+# Download the 10x Chromium sequencing data from NCBI SRA.
+SRR7878800.fq.gz:
+	fastq-dump -Z --split-spot SRR7878800 | sed 's/ .*//;s/^+.*/+/' | $(gzip) >$@
+
 # Data
 
 # Take the first ten million read pairs.
@@ -138,6 +148,7 @@ k=128
 	ln -s $*.k$k.abyss/marmot-scaffolds.fa $@
 
 # Unicycler
+k=59
 
 # Select the first read of the read pair.
 %.1.fq.gz: %.fq.gz
@@ -151,6 +162,11 @@ k=128
 %.unicycler.fa: %.1.fq.gz %.2.fq.gz
 	unicycler -t$t -o $*.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz
 	seqtk seq $*.unicycler/assembly.fasta >$@
+
+# Assemble short reads using Unicycler with a specified value of k.
+%.k$k.unicycler.fa: %.1.fq.gz %.2.fq.gz
+	unicycler -t$t --kmers=$k --no_correct -o $*.k$k.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz
+	seqtk seq $*.k$k.unicycler/assembly.fasta >$@
 
 # Polish the assembly using Illumina reads.
 # Correct only single nucleotide errors and small indels.
