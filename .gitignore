@@ -9,13 +9,17 @@
 *.discrep
 *.ema-fcnt
 *.ema-ncnt
+*.err
 *.fa
 *.faa
 *.fai
 *.fasta
+*.ffn
+*.fna
 *.fq.gz
 *.fsa
 *.gbf
+*.gbk
 *.gff
 *.hist
 *.histo
@@ -32,13 +36,13 @@
 *.tbl
 *.time
 *.tree
+*.tsv
 *.txt
 *.unicycler
 *.val
 4M-with-alts-february-2016.txt
 data
 notes
-prokka
 
 # IQ-TREE
 *.bionj
