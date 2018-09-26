@@ -26,7 +26,7 @@ time=command time -v -o $@.time
 .SECONDARY:
 
 all: \
-	marmot1-20M.bx.unicycler.fa \
+	SRR7878800-20M.bx.k59.unicycler.mt.rot.fa \
 	marmot-mt.mitos.fix.gbf.pdf \
 	marmot-mt.bwa.NC_018367.1.cds.sort.bam.bai
 
@@ -167,6 +167,7 @@ k=59
 %.k$k.unicycler.fa: %.1.fq.gz %.2.fq.gz
 	unicycler -t$t --kmers=$k --no_correct -o $*.k$k.unicycler -1 $*.1.fq.gz -2 $*.2.fq.gz
 	seqtk seq $*.k$k.unicycler/assembly.fasta >$@
+	ln -s $*.k$k.unicycler/assembly.gfa $*.k$k.unicycler.gfa
 
 # Polish the assembly using Illumina reads.
 # Correct only single nucleotide errors and small indels.
@@ -186,6 +187,18 @@ k=59
 # Copy the final FASTA file from unicycler_polish.
 %.unicycler-polish.fa: %.unicycler-polish.stamp
 	seqtk seq $*.unicycler-polish/???_final_polish.fasta | sed 's/ LN:i:[0-9]*//' >$@
+
+# Extract the mitochondrial genome from the assembly graph.
+%.mt.gfa: %.gfa NC_018367.1.fa
+	Bandage reduce $< $@ --scope aroundblast --query NC_018367.1.fa
+
+# Convert GFA to FASTA.
+%.mt.fa: %.mt.gfa
+	awk '/^S/ { print ">marmot-mt Marmota flaviventris mitochondrion, complete genome\n" $$3 }' $< >$@
+
+# Rotate the genome to trnF-GAA.
+%.rot.fa: %.fa
+	sed 's/GTTAATGTAGCTTAATCT/ &/' $< | awk '/^>/ { print; next } {print $$2 $$1}' >$@
 
 # MAFFT
 
