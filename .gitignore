@@ -20,6 +20,7 @@
 *.fsa
 *.gbf
 *.gbk
+*.gfa
 *.gff
 *.hist
 *.histo
