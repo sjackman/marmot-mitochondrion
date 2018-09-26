@@ -47,3 +47,7 @@ prokka
 *.mldist
 *.model.gz
 *.splits.nex
+
+!marmot-mt.fa
+!marmot1-20M.bx.unicycler.mt.rot.fa
+!marmot1-20M.bx.unicycler.xx.fa
