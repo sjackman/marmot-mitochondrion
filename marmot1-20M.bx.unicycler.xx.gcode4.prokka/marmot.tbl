@@ -1,0 +1,103 @@
+>Feature gnl|BCGSC|FAOCMLNO_1
+271	5622	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00001
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00001
+271	5622	gene
+			locus_tag	FAOCMLNO_00001
+5715	6089	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00002
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00002
+5715	6089	gene
+			locus_tag	FAOCMLNO_00002
+6348	6914	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00003
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00003
+6348	6914	gene
+			locus_tag	FAOCMLNO_00003
+6914	7900	CDS
+			EC_number	3.6.1.1
+			dbxref	COG:COG1227
+			gene	ppaC
+			inference	ab initio prediction:Prodigal:2.6
+			inference	similar to AA sequence:UniProtKB:P95765
+			locus_tag	FAOCMLNO_00004
+			product	putative manganese-dependent inorganic pyrophosphatase
+			protein_id	gnl|BCGSC|FAOCMLNO_00004
+6914	7900	gene
+			gene	ppaC
+			locus_tag	FAOCMLNO_00004
+8205	9602	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00005
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00005
+8205	9602	gene
+			locus_tag	FAOCMLNO_00005
+9720	10031	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00006
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00006
+9720	10031	gene
+			locus_tag	FAOCMLNO_00006
+10024	10572	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00007
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00007
+10024	10572	gene
+			locus_tag	FAOCMLNO_00007
+10574	11224	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00008
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00008
+10574	11224	gene
+			locus_tag	FAOCMLNO_00008
+11227	12630	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00009
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00009
+11227	12630	gene
+			locus_tag	FAOCMLNO_00009
+12634	13785	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00010
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00010
+12634	13785	gene
+			locus_tag	FAOCMLNO_00010
+13790	13942	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00011
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00011
+13790	13942	gene
+			locus_tag	FAOCMLNO_00011
+13981	14325	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00012
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00012
+13981	14325	gene
+			locus_tag	FAOCMLNO_00012
+14336	14500	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	FAOCMLNO_00013
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|FAOCMLNO_00013
+14336	14500	gene
+			locus_tag	FAOCMLNO_00013
+14864	14939	tRNA
+			inference	COORDINATES:profile:Aragorn:1.2
+			locus_tag	FAOCMLNO_00014
+			product	tRNA-Val(tac)
+14864	14939	gene
+			locus_tag	FAOCMLNO_00014
