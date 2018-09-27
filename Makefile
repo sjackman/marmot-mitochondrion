@@ -196,9 +196,13 @@ k=59
 %.mt.fa: %.mt.gfa
 	awk '/^S/ { print ">marmot-mt Marmota flaviventris mitochondrion, complete genome\n" $$3 }' $< >$@
 
-# Rotate the genome to trnF-GAA.
-%.rot.fa: %.fa
+# Rotate the mitochondrial genome to trnF-GAA.
+%.mt.rot.fa: %.mt.fa
 	sed 's/GTTAATGTAGCTTAATCT/ &/' $< | awk '/^>/ { print; next } {print $$2 $$1}' >$@
+
+# Rotate the unknown circular molecule to trnV-TAC.
+%.xx.rot.fa: %.xx.fa
+	sed 's/GGGAGGGTAGCTCAGCTG/ &/' $< | awk '/^>/ { print; next } {print $$2 $$1}' >$@
 
 # MAFFT
 
@@ -255,6 +259,12 @@ prokka/%.gff: %.fa NC_018367.1.cds.prokka.faa
 # Fix up the Prokka GFF file.
 %.prokka.gff: prokka/%.gff
 	gsed -e '/^##FASTA/,$$d' -e 's/gnl[^\t]*_1/marmot-mt/' $< >$@
+
+# ARAGORN
+
+# Annotate tRNA using ARAGORN and output a plain text report.
+%.aragorn.txt: %.fa
+	aragorn -gcstd -c -o $@ $<
 
 # tbl2asn
 
