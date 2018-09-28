@@ -102,9 +102,16 @@
 			protein_id	gnl|BCGSC|IPCBLCPI_00014
 14923	15087	gene
 			locus_tag	IPCBLCPI_00014
+15098	15460	CDS
+			inference	ab initio prediction:Prodigal:2.6
+			locus_tag	IPCBLCPI_00015
+			product	hypothetical protein
+			protein_id	gnl|BCGSC|IPCBLCPI_00015
+15098	15460	gene
+			locus_tag	IPCBLCPI_00015
 15451	15526	tRNA
 			inference	COORDINATES:profile:Aragorn:1.2
-			locus_tag	IPCBLCPI_00015
+			locus_tag	IPCBLCPI_00016
 			product	tRNA-Val(tac)
 15451	15526	gene
-			locus_tag	IPCBLCPI_00015
+			locus_tag	IPCBLCPI_00016
