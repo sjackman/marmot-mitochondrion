@@ -1,0 +1,4 @@
+StructuredCommentPrefix	##Genome-Assembly-Data-START##
+Assembly Method	Unicycler v. 0.4.7
+Genome Coverage	49x
+Sequencing Technology	Illumina HiSeq X Ten
