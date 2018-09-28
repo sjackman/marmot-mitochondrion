@@ -251,7 +251,7 @@ prokka/%.gff: %.fa NC_018367.1.cds.prokka.faa
 # Annotate bacterial genes using Prokka with genetic code 4.
 %.gcode4.prokka/marmot.gff: %.fa
 	prokka --cpus $t --kingdom Bacteria --gcode 4 --addgenes \
-		--genus Marmota --species 'flaviventris' \
+		--genus Unknown --species 'circular DNA molecule' \
 		--centre BCGSC \
 		--force --outdir $*.gcode4.prokka --prefix marmot \
 		$<
@@ -273,9 +273,14 @@ prokka/%.gff: %.fa NC_018367.1.cds.prokka.faa
 	sed '/^>/s/ .*/ [organism=Marmota flaviventris] [location=mitochondrion] [completeness=complete] [topology=circular] [mgcode=2]/' $< >$@
 
 # Convert annotations from Genbank TBL to GBF.
-%.gbf: %.tbl marmot-mt.fsa marmot-mt.cmt marmot-mt.sbt
+marmot-mt.mitos.fix.gbf: %.gbf: %.tbl marmot-mt.fsa marmot-mt.cmt marmot-mt.sbt
 	ln -sf marmot-mt.fsa $*.fsa
 	tbl2asn -a s -i $*.fsa -w marmot-mt.cmt -t marmot-mt.sbt -Z $*.discrep -Vbv
+	mv errorsummary.val $*.errorsummary.val
+
+# Convert annotations from Genbank TBL to GBF.
+%.gbf: %.tbl %.fsa %.cmt marmot-mt.sbt
+	tbl2asn -a s -i $*.fsa -w $*.cmt -t marmot-mt.sbt -Z $*.discrep -Vbv
 	mv errorsummary.val $*.errorsummary.val
 
 # OrganellarGenomeDRAW
