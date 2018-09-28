@@ -1,110 +1,110 @@
->Feature gnl|BCGSC|PNILDCIJ_1
-1	76	tRNA
-			inference	COORDINATES:profile:Aragorn:1.2
-			locus_tag	PNILDCIJ_00001
-			product	tRNA-Val(tac)
-1	76	gene
-			locus_tag	PNILDCIJ_00001
-225	1091	CDS
+>Feature gnl|BCGSC|IPCBLCPI_1
+1	867	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00002
+			locus_tag	IPCBLCPI_00001
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00002
-225	1091	gene
-			locus_tag	PNILDCIJ_00002
-1082	6433	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00001
+1	867	gene
+			locus_tag	IPCBLCPI_00001
+858	6209	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00003
+			locus_tag	IPCBLCPI_00002
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00003
-1082	6433	gene
-			locus_tag	PNILDCIJ_00003
-6526	6900	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00002
+858	6209	gene
+			locus_tag	IPCBLCPI_00002
+6302	6676	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00004
+			locus_tag	IPCBLCPI_00003
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00004
-6526	6900	gene
-			locus_tag	PNILDCIJ_00004
-7159	7725	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00003
+6302	6676	gene
+			locus_tag	IPCBLCPI_00003
+6935	7501	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00005
+			locus_tag	IPCBLCPI_00004
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00005
-7159	7725	gene
-			locus_tag	PNILDCIJ_00005
-7725	8711	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00004
+6935	7501	gene
+			locus_tag	IPCBLCPI_00004
+7501	8487	CDS
 			EC_number	3.6.1.1
 			dbxref	COG:COG1227
 			gene	ppaC
 			inference	ab initio prediction:Prodigal:2.6
 			inference	similar to AA sequence:UniProtKB:P95765
-			locus_tag	PNILDCIJ_00006
+			locus_tag	IPCBLCPI_00005
 			product	putative manganese-dependent inorganic pyrophosphatase
-			protein_id	gnl|BCGSC|PNILDCIJ_00006
-7725	8711	gene
+			protein_id	gnl|BCGSC|IPCBLCPI_00005
+7501	8487	gene
 			gene	ppaC
-			locus_tag	PNILDCIJ_00006
-9016	10413	CDS
+			locus_tag	IPCBLCPI_00005
+8792	10189	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00007
+			locus_tag	IPCBLCPI_00006
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00007
-9016	10413	gene
-			locus_tag	PNILDCIJ_00007
-10531	10842	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00006
+8792	10189	gene
+			locus_tag	IPCBLCPI_00006
+10307	10618	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00008
+			locus_tag	IPCBLCPI_00007
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00008
-10531	10842	gene
-			locus_tag	PNILDCIJ_00008
-10835	11383	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00007
+10307	10618	gene
+			locus_tag	IPCBLCPI_00007
+10611	11159	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00009
+			locus_tag	IPCBLCPI_00008
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00009
-10835	11383	gene
-			locus_tag	PNILDCIJ_00009
-11385	12035	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00008
+10611	11159	gene
+			locus_tag	IPCBLCPI_00008
+11161	11811	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00010
+			locus_tag	IPCBLCPI_00009
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00010
-11385	12035	gene
-			locus_tag	PNILDCIJ_00010
-12038	13441	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00009
+11161	11811	gene
+			locus_tag	IPCBLCPI_00009
+11814	13217	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00011
+			locus_tag	IPCBLCPI_00010
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00011
-12038	13441	gene
-			locus_tag	PNILDCIJ_00011
-13445	14596	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00010
+11814	13217	gene
+			locus_tag	IPCBLCPI_00010
+13221	14372	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00012
+			locus_tag	IPCBLCPI_00011
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00012
-13445	14596	gene
-			locus_tag	PNILDCIJ_00012
-14601	14753	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00011
+13221	14372	gene
+			locus_tag	IPCBLCPI_00011
+14377	14529	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00013
+			locus_tag	IPCBLCPI_00012
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00013
-14601	14753	gene
-			locus_tag	PNILDCIJ_00013
-14792	15136	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00012
+14377	14529	gene
+			locus_tag	IPCBLCPI_00012
+14568	14912	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00014
+			locus_tag	IPCBLCPI_00013
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00014
-14792	15136	gene
-			locus_tag	PNILDCIJ_00014
-15147	15311	CDS
+			protein_id	gnl|BCGSC|IPCBLCPI_00013
+14568	14912	gene
+			locus_tag	IPCBLCPI_00013
+14923	15087	CDS
 			inference	ab initio prediction:Prodigal:2.6
-			locus_tag	PNILDCIJ_00015
+			locus_tag	IPCBLCPI_00014
 			product	hypothetical protein
-			protein_id	gnl|BCGSC|PNILDCIJ_00015
-15147	15311	gene
-			locus_tag	PNILDCIJ_00015
+			protein_id	gnl|BCGSC|IPCBLCPI_00014
+14923	15087	gene
+			locus_tag	IPCBLCPI_00014
+15451	15526	tRNA
+			inference	COORDINATES:profile:Aragorn:1.2
+			locus_tag	IPCBLCPI_00015
+			product	tRNA-Val(tac)
+15451	15526	gene
+			locus_tag	IPCBLCPI_00015
