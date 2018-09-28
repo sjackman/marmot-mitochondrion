@@ -200,9 +200,9 @@ k=59
 %.mt.rot.fa: %.mt.fa
 	sed 's/GTTAATGTAGCTTAATCT/ &/' $< | awk '/^>/ { print; next } {print $$2 $$1}' >$@
 
-# Rotate the unknown circular molecule to trnV-TAC.
+# Rotate the unknown circular molecule to the first ORF following trnV-TAC.
 %.xx.rot.fa: %.xx.fa
-	sed 's/GGGAGGGTAGCTCAGCTG/ &/' $< | awk '/^>/ { print; next } {print $$2 $$1}' >$@
+	sed 's/ATGGTTTACTGTTTTGGA/ &/' $< | awk '/^>/ { print; next } {print $$2 $$1}' >$@
 
 # MAFFT
 
