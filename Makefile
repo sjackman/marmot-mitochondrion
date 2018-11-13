@@ -6,6 +6,9 @@ draft=marmot-mt
 # Linked reads
 lr=marmot1-20M
 
+# Nanopore reads
+nanopore=SJ83_1
+
 # Number of threads
 t=16
 
@@ -29,6 +32,8 @@ all: \
 	SRR7878800-20M.bx.k59.unicycler.mt.rot.fa \
 	marmot-mt.mitos.fix.gbf.pdf \
 	marmot-mt.bwa.NC_018367.1.cds.sort.bam.bai
+
+nanopore: SJ83_1.marmot-xx.paf.gz.pdf
 
 # NCBI
 
@@ -297,3 +302,14 @@ marmot-mt.mitos.fix.gbf: %.gbf: %.tbl marmot-mt.fsa marmot-mt.cmt marmot-mt.sbt
 # Convert Postscript to PDF.
 %.pdf: %.ps
 	ps2pdf $< $@
+
+# minimap2
+
+%.$(ref).paf.gz: $(ref).fa %.fq.gz
+	minimap2 -t$t -c -xmap-ont $^ | $(gzip) >$@
+
+# R
+
+# Plot a PAF file.
+%.paf.gz.pdf: %.paf.gz
+	Rscript -e 'rmarkdown::render("plot-paf.rmd", "html_document", "$*.plot-paf.html", params = list(input_paf="$<"))'
