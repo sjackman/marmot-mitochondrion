@@ -1,4 +1,4 @@
->gnl|BCGSC|IPCBLCPI_1 [organism=Unknown] [completeness=complete] [topology=circular] [gcode=4]
+>gnl|BCGSC|IPCBLCPI_1 [organism=Unknown] [host=Marmota flaviventris] [isolate=SJ83] [tissue_type=blood] [country=Canada] [completeness=complete] [topology=circular] [moltype=DNA] [gcode=4]
 ATGGTTTACTGTTTTGGAGAACAATTAATAGAAATAATATTAGAAGTTTTAACACCCCAA
 CAAATAAAACTTCTAGATTGAAAACCTCAAGATGGTACACCTATACCAACTAAGGATAGA
 TTGCTTGGACTTTATGGGCATTTATTTGGTAGATATGTTGGATTAACTGCTAAGGTTAAG
