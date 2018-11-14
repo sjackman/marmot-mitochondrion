@@ -4,13 +4,14 @@ author: Shaun Jackman
 params:
   input_paf:
     label: "Input PAF file"
-    value: "SJ83_1.marmot-xx.paf.gz"
+    value: "SJ83_1.marmot-xx-whv.paf.gz"
     input: text
 ---
 
 ```{r setup, message=FALSE}
 library(dplyr)
 library(ggplot2)
+library(magrittr)
 library(readr)
 library(scales)
 
@@ -34,12 +35,14 @@ paf <- paf_orig %>%
 		Identity = Matches / Length,
 		Index = cumsum(Qname != lag(Qname, default=""))) %>%
 	group_by(Qname) %>%
-	mutate(Blocks = n(), Total_length = sum(Length)) %>%
+	mutate(Blocks = n(), Total_length = sum(Tend - Tstart)) %>%
 	ungroup()
 
 paf_circular <- paf %>%
-	filter(Total_length >= 15500) %>%
-	mutate(Index = cumsum(Qname != lag(Qname, default="")))
+	filter(Total_length >= 15000) %>%
+	mutate(
+		Index = row_number(),
+		Query_index = cumsum(Qname != lag(Qname, default="")))
 ```
 
 
@@ -63,15 +66,55 @@ ggplot(paf_circular) +
 	ylab(NULL)
 ```
 
-# Plot the alignment position
+# Plot the target alignment position
 ```{r plot-position}
 ggplot(paf_circular) +
-	aes(xmin = Tstart, xmax = Tend, ymin = Index, ymax = Index + 1) +
+	aes(xmin = Tstart, xmax = Tend, ymin = Index, ymax = Index + 1, fill = Qname) +
 	geom_rect() +
 	scale_x_continuous(name = "Position", labels = unit_format(unit = "kbp", scale = 1e-3)) +
-	scale_y_continuous(breaks = 1)
+	scale_y_continuous(breaks = seq(max(paf_circular$Index))) +
+	scale_fill_brewer(palette = "Set3")
 ```
 
 ```{r save-plot}
 ggsave(paste0(input_paf, ".pdf"))
+```
+
+# Plot the query alignment position
+```{r plot-query-position}
+ggplot(paf_circular) +
+	aes(xmin = Qstart, xmax = Qend, ymin = Index, ymax = Index + 1, fill = Tname, colour=Qname) +
+	geom_rect() +
+	scale_x_continuous(name = "Position", labels = unit_format(unit = "kbp", scale = 1e-3)) +
+	scale_y_continuous(breaks = seq(max(paf_circular$Index))) +
+	scale_fill_brewer(palette = "Set3")
+```
+
+# Histogram of the target alignment position
+```{r plot-target-position-histogram}
+ggplot(paf_circular %>% filter(Tstart >= 20)) +
+	aes(x = Tstart, fill = Orientation, group = Orientation) +
+	geom_histogram(binwidth = 100, boundary = 0) +
+	scale_x_continuous(name = "Position", labels = unit_format(unit = "kbp", scale = 1e-3)) +
+	expand_limits(x = c(0, 15674))
+
+ggplot(paf_circular %>% filter(Tend < 15600)) +
+	aes(x = Tend, fill = Orientation, group = Orientation) +
+	geom_histogram(binwidth = 100, boundary = 0) +
+	scale_x_continuous(name = "Position", labels = unit_format(unit = "kbp", scale = 1e-3)) +
+	expand_limits(x = c(0, 15674))
+```
+
+# Plot the target alignment position at 8600-8900
+```{r plot-target-position}
+qnames <- paf_circular %>% filter(8700 <= Tstart, Tstart < 8800) %$% Qname
+paf_circular %>% filter(Qname %in% qnames)
+
+ggplot(paf_circular %>% filter(Qname %in% qnames)) +
+	aes(xmin = Tstart, xmax = Tend, ymin = Index, ymax = Index + 1, fill = Qname) +
+	geom_rect() +
+	scale_x_continuous(name = "Position", labels = unit_format(unit = "kbp", scale = 1e-3)) +
+	scale_y_continuous(breaks = seq(max(paf_circular$Index))) +
+	scale_fill_brewer(palette = "Set3") +
+	coord_cartesian(xlim = c(8600, 8900))
 ```
