@@ -37,6 +37,10 @@ nanopore: SJ83_1.marmot-xx.paf.gz.pdf
 
 # NCBI
 
+# Download the Woodchuck hepatitis virus DNA sequence from NCBI.
+M60765.1.fa:
+	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=M60765.1&db=nucleotide&rettype=fasta' | seqtk seq >$@
+
 # Download a nucleotide sequence from NCBI.
 NC_%.fa:
 	curl 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=text&id=NC_$*&db=nucleotide&rettype=fasta' | seqtk seq >$@
