@@ -159,6 +159,10 @@ k=128
 # Unicycler
 k=59
 
+# Convert a BAM file to FASTQ files.
+%.1.fq.gz %.2.fq.gz %.s.fq.gz: %.bam
+	samtools view -@$t -u -F4 $< | samtools sort -@$t -n -tBX | samtools fastq -@$t -TBX -1 $*.1.fq.gz -2 $*.2.fq.gz -s $*.s.fq.gz -
+
 # Select the first read of the read pair.
 %.1.fq.gz: %.fq.gz
 	seqtk seq -1 $< | $(gzip) >$@
