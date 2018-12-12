@@ -197,6 +197,18 @@ k=59
 %.unicycler-polish.fa: %.unicycler-polish.stamp
 	seqtk seq $*.unicycler-polish/???_final_polish.fasta | sed 's/ LN:i:[0-9]*//' >$@
 
+# Racon
+
+# Align the long reads to the draft genome and produce a SAM file.
+%.minimap2.$(nanopore).sam.gz: %.fa $(nanopore).fq.gz
+	minimap2 -t$t -xmap-ont -w5 -a $^ | $(gzip) >$@
+
+# Polish the assembly using Racon.
+%.racon.fa: $(nanopore).fq.gz %.minimap2.$(nanopore).sam.gz %.fa
+	$(time) racon -t $t $^ >$@
+
+# Bandage
+
 # Extract the mitochondrial genome from the assembly graph.
 %.mt.gfa: %.gfa NC_018367.1.fa
 	Bandage reduce $< $@ --scope aroundblast --query NC_018367.1.fa
